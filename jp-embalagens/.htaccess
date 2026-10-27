@@ -1,0 +1,66 @@
+# JP Embalagens · Apache/LiteSpeed (Hostinger). Vai no out/ do build.
+# Reescritas e redirecionamentos exigem mod_rewrite (o LiteSpeed da Hostinger lê estas regras).
+# Este arquivo precisa ter fim de linha LF (garantido pelo .gitattributes).
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# www para o domínio sem www, já em HTTPS (um salto só, também para http://www.)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# Sempre HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# URLs antigas ou prováveis. Casam só a URL exata, para não pegar /sobre-nos.
+# NE mantém o # do destino sem escapar. Com query string (utm_source etc.), ela vai antes do #.
+RewriteRule ^sobre/?$ /sobre-nos/ [R=301,L]
+RewriteCond %{QUERY_STRING} .
+RewriteRule ^produtos/?$ /?%{QUERY_STRING}#catalogo [R=301,L,NE]
+RewriteRule ^produtos/?$ /#catalogo [R=301,L,NE]
+RewriteCond %{QUERY_STRING} .
+RewriteRule ^contato/?$ /?%{QUERY_STRING}#fale-conosco [R=301,L,NE]
+RewriteRule ^contato/?$ /#fale-conosco [R=301,L,NE]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# Compressão de texto (o LiteSpeed já costuma fazer; aqui garante).
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache: arquivos do Next têm hash no nome; imagens e vídeos mudam raramente.
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 6 months"
+ExpiresByType image/avif "access plus 6 months"
+ExpiresByType image/jpeg "access plus 6 months"
+ExpiresByType image/png "access plus 6 months"
+ExpiresByType image/svg+xml "access plus 6 months"
+ExpiresByType image/x-icon "access plus 30 days"
+ExpiresByType image/vnd.microsoft.icon "access plus 30 days"
+ExpiresByType video/mp4 "access plus 6 months"
+ExpiresByType font/woff2 "access plus 30 days"
+ExpiresByType application/font-woff2 "access plus 30 days"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+# Todo .js e .css do site está em /_next/static, com hash no nome: imutável por 1 ano.
+<FilesMatch "\.(js|css)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+# As fontes de /fonts não têm hash: cache de 30 dias, sem immutable.
+<FilesMatch "\.(ttf|woff2)$">
+Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
