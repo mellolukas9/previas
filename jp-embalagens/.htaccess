@@ -23,6 +23,8 @@ RewriteRule ^produtos/?$ /#catalogo [R=301,L,NE]
 RewriteCond %{QUERY_STRING} .
 RewriteRule ^contato/?$ /?%{QUERY_STRING}#fale-conosco [R=301,L,NE]
 RewriteRule ^contato/?$ /#fale-conosco [R=301,L,NE]
+# A sacola para vinho virou a L53
+RewriteRule ^produto/sacola-para-vinho/?$ /produto/sacola-l53/ [R=301,L]
 </IfModule>
 
 ErrorDocument 404 /404.html
