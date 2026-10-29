@@ -1,4 +1,4 @@
-:HL["/jp-embalagens/_next/static/chunks/0h5f1mk0imdoi.css","style"]
+:HL["/jp-embalagens/_next/static/chunks/06r7vwr1kyhib.css","style"]
 :HL["/jp-embalagens/fonts/Museo-500.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/jp-embalagens/fonts/Museo-700.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"sobre-nos","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"vQt-c5rSSAM0ovef6zVZz"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"sobre-nos","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"GnIhl4oIXJQk7uPRHd-p4"}
