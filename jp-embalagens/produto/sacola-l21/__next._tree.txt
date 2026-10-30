@@ -1,4 +1,4 @@
 :HL["/jp-embalagens/_next/static/chunks/06r7vwr1kyhib.css","style"]
 :HL["/jp-embalagens/fonts/Museo-500.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/jp-embalagens/fonts/Museo-700.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"produto","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"sacola-l21","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"ld3A4JTlcTh-xZxg_Rz8g"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"produto","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"sacola-l21","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"Z5asI9cnq2gatSduhdYvm"}
