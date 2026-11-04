@@ -1,0 +1,3 @@
+:HL["/grafica-teste-2/_next/static/chunks/3rc06s70x3hjw.css","style"]
+:HC["/",""]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"AUq3zsEvqAY3sjrmX1x8Z"}
